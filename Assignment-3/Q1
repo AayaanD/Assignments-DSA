@@ -1,0 +1,92 @@
+#include<iostream>
+using namespace std;
+int stack[100],top=-1,size;
+void push(int val)
+{
+	if(top==size-1)
+	{
+		cout<<"Overflow\n";
+	}
+else{
+stack[++top]=val;
+cout<<val<<" pushed to stack\n";}
+}
+void pop()
+{
+	if(top==-1)
+	{
+		cout<<"Underflow\n";
+	}
+	else
+	{
+		cout<<"Popped :"<<stack[top--]<<endl;
+	}
+}
+void peek()
+{
+	if (top==-1)
+	{
+		cout<<"Stack is empty\n";
+	}
+	else
+	cout<<"Top element: "<<stack[top]<<endl;
+}
+void display()
+{
+	if(top ==-1)
+	cout<<"Stack is Empty\n";
+	else
+	{
+		cout<<"Stack :";
+		for(int i=top;i>=0;i--)
+		{
+			cout<<stack[i]<<" ";
+			cout<<endl;
+		}
+	}
+}
+void isEmpty()
+{
+	if(top ==-1){
+		cout<<"Stack is Empty\n";
+	}
+	else cout<<"Stack is Not Empty\n";
+}
+void isFull()
+{
+	if(top==size-1)
+	{
+		cout<<"Stack is Full\n";
+	}
+	else
+	{
+		cout<<"Stack is Not Full\n";
+	}
+}
+
+int main()
+{
+	int choice,val;
+	cout<<"Enter Size of Stack: \n";
+    cin>>size;
+	do{
+		cout<<"\n Stack Menu \n";
+		cout<<"1. Push\n 2. Pop\n 3. Peek\n 4. Display\n 5. isEmpty\n 6. isFull\n 0. Exit\n";
+		cout<<"Enter Choice: ";
+		cin>>choice;
+		switch (choice)
+		{
+			case 1:cout<<"Enter value: "; cin>>val;push(val);break;
+			case 2:pop();break;
+			case 3:peek();break;
+			case 4:display();break;
+			case 5:isEmpty();break;
+			case 6:isFull();break;
+			case 0: cout<<"Exiting ...\n";break;
+			default:
+				cout<<"Invalid Choice! \n";
+		}
+	}
+	while(choice !=0);
+	return 0;
+}
